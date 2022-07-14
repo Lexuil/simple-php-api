@@ -7,7 +7,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 
-# User API
+# Index
 RewriteRule ^inicio$ ./index.php [L]
 # User API
 RewriteRule ^api/v1/user$ ./api/user/all.php [L]

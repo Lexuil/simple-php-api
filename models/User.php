@@ -33,4 +33,48 @@ class User
         return $stmt;
     }
 
+    // Create User
+    public function create($firstname, $lastname, $email, $phone, $birthday, $password)
+    {
+        // Create query
+        $query = 'INSERT INTO ' . $this->table . '
+            SET
+                firstname = :firstname,
+                lastname = :lastname,
+                email = :email,
+                phone = :phone,
+                birthday = :birthday,
+                password = :password';
+
+        // Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        // Clean data
+        $this->firstname = htmlspecialchars(strip_tags($firstname));
+        $this->lastname = htmlspecialchars(strip_tags($lastname));
+        $this->email = htmlspecialchars(strip_tags($email));
+        $this->phone = htmlspecialchars(strip_tags($phone));
+        $this->birthday = htmlspecialchars(strip_tags($birthday));
+        $this->password = htmlspecialchars(strip_tags($password));
+
+        // Hash Password
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+
+        // Bind data
+        $stmt->bindParam(':firstname', $this->firstname);
+        $stmt->bindParam(':lastname', $this->lastname);
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':phone', $this->phone);
+        $stmt->bindParam(':birthday', $this->birthday);
+        $stmt->bindParam(':password', $this->password);
+
+        // Execute query
+        if ($stmt->execute()) {
+            return true;
+        }
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+        return false;
+    }
+
 }

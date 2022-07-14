@@ -16,6 +16,7 @@ $user = new User($db);
 
 // Get users
 $result = $user->all();
+
 // Check if any users
 if($result->rowCount() > 0) {
     $users_arr = array();
