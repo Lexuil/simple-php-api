@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bb29c03d-d1a6-48ac-9dd2-a775ef94603a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,6 +15,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Buxjo6UuFnI582h4AEGY792EEi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,11 +48,22 @@
       <option name="presentableId" value="Default" />
       <updated>1657769908800</updated>
       <workItem from="1657769909953" duration="32000" />
-      <workItem from="1657769943062" duration="440000" />
+      <workItem from="1657769943062" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
