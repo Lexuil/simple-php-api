@@ -10,4 +10,4 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 # Index
 RewriteRule ^inicio$ ./index.php [L]
 # User API
-RewriteRule ^api/v1/user$ ./api/user/all.php [L]
+RewriteRule ^api/v1/user$ ./api/user/index.php [L]
