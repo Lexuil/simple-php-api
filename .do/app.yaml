@@ -1,0 +1,8 @@
+spec:
+  name: simple-php-api
+  services:
+    - environment_slug: php
+      git:
+        branch: main
+        repo_clone_url: https://github.com/Lexuil/simple-php-api
+      name: simple-php-api
