@@ -34,9 +34,8 @@ class User
     }
 
     // Create User
-    public function create($firstname, $lastname, $email, $phone, $birthday, $password)
+    public function create()
     {
-        // Create query
         $query = 'INSERT INTO ' . $this->table . '
             SET
                 firstname = :firstname,
@@ -46,21 +45,20 @@ class User
                 birthday = :birthday,
                 password = :password';
 
-        // Prepare statement
         $stmt = $this->conn->prepare($query);
 
         // Clean data
-        $this->firstname = htmlspecialchars(strip_tags($firstname));
-        $this->lastname = htmlspecialchars(strip_tags($lastname));
-        $this->email = htmlspecialchars(strip_tags($email));
-        $this->phone = htmlspecialchars(strip_tags($phone));
-        $this->birthday = htmlspecialchars(strip_tags($birthday));
-        $this->password = htmlspecialchars(strip_tags($password));
+        $this->firstname = htmlspecialchars(strip_tags($this->firstname));
+        $this->lastname = htmlspecialchars(strip_tags($this->lastname));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->phone = htmlspecialchars(strip_tags($this->phone));
+        $this->birthday = htmlspecialchars(strip_tags($this->birthday));
+        $this->password = htmlspecialchars(strip_tags($this->password));
 
         // Hash Password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-        // Bind data
+        // Bind Data
         $stmt->bindParam(':firstname', $this->firstname);
         $stmt->bindParam(':lastname', $this->lastname);
         $stmt->bindParam(':email', $this->email);
@@ -72,8 +70,10 @@ class User
         if ($stmt->execute()) {
             return true;
         }
+
         // Print error if something goes wrong
         printf("Error: %s.\n", $stmt->error);
+
         return false;
     }
 

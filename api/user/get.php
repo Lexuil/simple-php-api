@@ -20,7 +20,7 @@ $result = $user->all();
 // Check if any users
 if($result->rowCount() > 0) {
     $users_arr = array();
-    $users_arr['data'] = array();
+    $users_arr['users'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
@@ -36,7 +36,7 @@ if($result->rowCount() > 0) {
             'updated_at' => $updated_at
         );
         // Push to "data"
-        $users_arr['data'][] = $user_item;
+        $users_arr['users'][] = $user_item;
     }
     // Turn to JSON & output
     echo json_encode($users_arr);
