@@ -123,13 +123,13 @@ class User
 
         // Execute query
         if ($stmt->execute()) {
-            return true;
+            return 'user created successfully';
         }
 
         // Print error if something goes wrong
         printf("Error: %s.\n", $stmt->error);
 
-        return 'User Created';
+        return 'Error';
     }
 
 }
