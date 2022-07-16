@@ -28,6 +28,7 @@ if($result->rowCount() > 0) {
             'id' => $id,
             'firstname' => $firstname,
             'lastname' => $lastname,
+            'identification' => $identification,
             'email' => $email,
             'phone' => $phone,
             'birthday' => $birthday,
