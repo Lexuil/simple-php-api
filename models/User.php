@@ -48,24 +48,24 @@ class User
 
         // Validate data is not empty
         if (empty($this->firstname) || empty($this->lastname) || empty($this->identification) || empty($this->email) || empty($this->phone) || empty($this->birthday) || empty($this->password)) {
-            return false;
+            return 'all fields are required';
         }
 
         // check if email is valid
         if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            return false;
+            return 'email is not valid';
         }
         // check if phone is valid
         if (!preg_match('/^[0-9]{10}$/', $this->phone)) {
-            return false;
+            return 'phone is not valid';
         }
         // check if birthday is valid
         if (!preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $this->birthday)) {
-            return false;
+            return 'birthday is not valid';
         }
         // check if password is valid
         if (!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/', $this->password)) {
-            return false;
+            return 'password is not valid';
         }
 
         // check if email already exists
@@ -75,7 +75,7 @@ class User
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            return false;
+            return 'email already exists';
         }
         // check if phone already exists
         $query = 'SELECT phone FROM ' . $this->table . ' WHERE phone = :phone';
@@ -84,7 +84,7 @@ class User
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            return false;
+            return 'phone already exists';
         }
         // check if identification already exists
         $query = 'SELECT identification FROM ' . $this->table . ' WHERE identification = :identification';
@@ -93,7 +93,7 @@ class User
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            return false;
+            return 'identification already exists';
         }
 
         // Create query
@@ -129,7 +129,7 @@ class User
         // Print error if something goes wrong
         printf("Error: %s.\n", $stmt->error);
 
-        return false;
+        return 'User Created';
     }
 
 }

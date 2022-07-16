@@ -26,12 +26,6 @@ $user->birthday = $data->birthday;
 $user->password = $data->password;
 
 // Create user
-if($user->create()) {
-    echo json_encode(
-        array('message' => 'User Created')
-    );
-} else {
-    echo json_encode(
-        array('message' => 'User Not Created')
-    );
-}
+echo json_encode(
+    array('message' => $user->create())
+);
