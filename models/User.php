@@ -37,18 +37,6 @@ class User
     // Create User
     public function create()
     {
-        $query = 'INSERT INTO ' . $this->table . '
-            SET
-                firstname = :firstname,
-                lastname = :lastname,
-                identification = :identification,
-                email = :email,
-                phone = :phone,
-                birthday = :birthday,
-                password = :password';
-
-        $stmt = $this->conn->prepare($query);
-
         // Clean data
         $this->firstname = htmlspecialchars(strip_tags($this->firstname));
         $this->lastname = htmlspecialchars(strip_tags($this->lastname));
@@ -108,6 +96,18 @@ class User
             return false;
         }
 
+        // Create query
+        $query = 'INSERT INTO ' . $this->table . '
+            SET
+                firstname = :firstname,
+                lastname = :lastname,
+                identification = :identification,
+                email = :email,
+                phone = :phone,
+                birthday = :birthday,
+                password = :password';
+
+        $stmt = $this->conn->prepare($query);
 
         // Hash Password
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
