@@ -11,3 +11,5 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^inicio$ ./index.php [L]
 # User API
 RewriteRule ^api/v1/user$ ./api/user/index.php [L]
+# Event API
+RewriteRule ^api/v1/event$ ./api/event/index.php [L]
