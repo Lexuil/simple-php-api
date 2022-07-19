@@ -27,7 +27,7 @@ $event->cant = $data->cant;
 $event->image_url = $data->image_url;
 
 
-// Create user
+// Create event
 echo json_encode(
     array('message' => $event->create())
 );

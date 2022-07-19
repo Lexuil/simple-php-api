@@ -74,7 +74,7 @@ class Event
 
         // Execute query
         if ($stmt->execute()) {
-            return 'user created successfully';
+            return 'event created successfully';
         }
 
         // Print error if something goes wrong
