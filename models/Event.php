@@ -62,6 +62,16 @@ class Event
 
         $stmt = $this->conn->prepare($query);
 
+        // Bind data
+        $stmt->bindParam(':name', $this->name);
+        $stmt->bindParam(':country', $this->country);
+        $stmt->bindParam(':city', $this->city);
+        $stmt->bindParam(':address', $this->address);
+        $stmt->bindParam(':date', $this->date);
+        $stmt->bindParam(':description', $this->description);
+        $stmt->bindParam(':cant', $this->cant);
+        $stmt->bindParam(':image_url', $this->image_url);
+
         // Execute query
         if ($stmt->execute()) {
             return 'user created successfully';

@@ -23,7 +23,7 @@ $event->city = $data->city;
 $event->address = $data->address;
 $event->date = $data->date;
 $event->description = $data->description;
-$event->cant = $data->count;
+$event->cant = $data->cant;
 $event->image_url = $data->image_url;
 
 
